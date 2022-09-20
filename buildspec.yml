@@ -1,0 +1,9 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - echo building docker image
+      - git clone https://github.com/akhildadnu/k8s-test.git
+      - cd k8s-test
+      - docker build -t nginx:latest .
+       

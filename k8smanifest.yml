@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+Kind: Namespace
+metadata:
+  name: akhil
+
+---  
+apiVersion: apps/v1
+Kind: deployments
+metadata:
+  name: nginx-deployment
+  label:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx:latest
+        name: nginx
+        ports:
+        - containerPort: 80
+        resources: {}
+
+---
+apiVersion: v1
+Kind: service
+metadata: 
+  name: nginx-service
+  label:
+    app: nginx
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 80
+      nodePort: 30007
+  type: NodePort
+      
+
