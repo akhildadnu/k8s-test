@@ -30,20 +30,20 @@ spec:
         resources: {}
 
 ---
-apiVersion: v1
-Kind: service
-metadata: 
-  name: nginx-service
-  label:
-    app: nginx
-spec:
-  selector:
-    app: nginx
-  ports:
-    - protocol: TCP
-      port: 8000
-      targetPort: 80
-      nodePort: 30007
-  type: NodePort
+#apiVersion: v1
+#Kind: service
+#metadata: 
+ # name: nginx-service
+  #label:
+   # app: nginx
+#spec:
+ # selector:
+  #  app: nginx
+  #ports:
+   # - protocol: TCP
+    #  port: 8000
+     # targetPort: 80
+    #  nodePort: 30007
+ # type: NodePort
       
 
